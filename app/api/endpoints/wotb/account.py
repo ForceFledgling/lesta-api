@@ -16,7 +16,8 @@ router = APIRouter()
 
 @router.post(
     "/list/",
-    description="Получение списка всех аккаунтов по имени."
+    summary="Игроки",
+    description="Метод возвращает часть списка игроков, отфильтрованную по первым символам имени и отсортированную по алфавиту."
 )
 def get_accounts_list(
     request: Request,
@@ -29,7 +30,8 @@ def get_accounts_list(
 
 @router.post(
     "/info/",
-    description="Получение персональных данных игроков по account_id."
+    summary="Персональные данные игрока",
+    description="Метод возвращает информацию об игроке."
 )
 def get_accounts_personal_info(
     request: Request,
