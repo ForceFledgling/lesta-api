@@ -21,6 +21,23 @@ def test(
     request: Request,
     request_data: custom.CustomClansModel = Depends(),
 ):
-    service = CustomService(request)
+    # print('path1', request.url.path)
+    service = CustomService(request) # закомментил чтобы не вызывалось
     response = service.run()
     return response
+
+
+# @router.post(
+#     "/test2/",
+#     summary="Кастомный запрос2",
+#     description="Тестовый запрос2",
+# )
+# def test2(
+#     request: Request,
+#     request_data: custom.CustomClansModel = Depends(),
+# ):
+    
+#     test(request, request_data)  # хочу вызвать другой эндпоинт "test"
+    
+#     print('path2', request.url.path)
+#     return {}
