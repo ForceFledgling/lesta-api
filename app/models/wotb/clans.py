@@ -6,7 +6,6 @@ from app.models import FieldDescriptions
 
 
 class ClansModel(BaseModel):
-    ''' Data model for a device account '''
     application_id: Optional[str] = Field(Query(
             default=None,
             description=FieldDescriptions.application_id
@@ -35,7 +34,6 @@ class ClansModel(BaseModel):
 
 
 class ClansInfoModel(BaseModel):
-    ''' Data model for a device account '''
     application_id: Optional[str] = Field(Query(
             default=None,
             description=FieldDescriptions.application_id
@@ -69,7 +67,6 @@ class ClansInfoModel(BaseModel):
 
 
 class ClansAccountInfoModel(BaseModel):
-    ''' Data model for a device account '''
     application_id: Optional[str] = Field(Query(
             default=None,
             description=FieldDescriptions.application_id
@@ -86,6 +83,21 @@ class ClansAccountInfoModel(BaseModel):
         Допустимые значения:
             "members"
             """,
+    ))
+    fields: Union[str, list] | None = Field(Query(
+            default=None,
+            description=FieldDescriptions.fields
+    ))
+    language: Optional[str] = Field(Query(
+            default=None,
+            description=FieldDescriptions.language
+    ))
+
+
+class ClansGlossaryModel(BaseModel):
+    application_id: Optional[str] = Field(Query(
+            default=None,
+            description=FieldDescriptions.application_id
     ))
     fields: Union[str, list] | None = Field(Query(
             default=None,

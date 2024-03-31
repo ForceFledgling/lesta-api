@@ -7,7 +7,7 @@ from fastapi import Request, APIRouter
 from fastapi import Depends
 
 from app.core.exceptions import UnicornException
-from app.models.wotb import accounts
+from app.models.wotb import account
 from app.services.api import ApiService
 
 

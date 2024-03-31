@@ -8,8 +8,8 @@ from app.models import FieldDescriptions
 class PlayersModel(BaseModel):
     ''' Data model for a device account '''
     application_id: Optional[str] = Field(Query(
-            default=None,
-            description=FieldDescriptions.application_id
+        default=None,
+        description=FieldDescriptions.application_id
     ))
     search: str = Field(Query(
         description=\
@@ -21,16 +21,16 @@ class PlayersModel(BaseModel):
             """,
     ))
     fields: Union[str, list] | None = Field(Query(
-            default=None,
-            description=FieldDescriptions.fields
+        default=None,
+        description=FieldDescriptions.fields
     ))
     language: Optional[str] = Field(Query(
-            default=None,
-            description=FieldDescriptions.language
+        default=None,
+        description=FieldDescriptions.language
     ))
     limit: Optional[int] = Field(Query(
-            default=None,
-            description=FieldDescriptions.limit
+        default=None,
+        description=FieldDescriptions.limit
     ))
     type: Optional[str] = Field(Query(
         default=None,
@@ -48,15 +48,15 @@ class PlayersModel(BaseModel):
 
 class PlayersPersonalDataModel(BaseModel):
     application_id: Optional[str] = Field(Query(
-            default=None,
-            description=FieldDescriptions.application_id
+        default=None,
+        description=FieldDescriptions.application_id
     ))
     account_id: Union[int, list] = Field(Query(
-            description=FieldDescriptions.account_id
+        description=FieldDescriptions.account_id
     ))
     access_token: Optional[str] = Field(Query(
-            default=None,
-            description=FieldDescriptions.access_token
+        default=None,
+        description=FieldDescriptions.access_token
     ))
     extra: Union[str, list] | None = Field(Query(
         default=None,
@@ -69,10 +69,49 @@ class PlayersPersonalDataModel(BaseModel):
             """,
     ))
     fields: Union[str, list] | None = Field(Query(
-            default=None,
-            description=FieldDescriptions.fields
+        default=None,
+        description=FieldDescriptions.fields
     ))
     language: Optional[str] = Field(Query(
-            default=None,
-            description=FieldDescriptions.language
+        default=None,
+        description=FieldDescriptions.language
+    ))
+
+
+class PlayersAchievementsModel(BaseModel):
+    application_id: Optional[str] = Field(Query(
+        default=None,
+        description=FieldDescriptions.application_id
+    ))
+    account_id: Union[int, list] = Field(Query(
+        description=FieldDescriptions.account_id
+    ))
+    fields: Union[str, list] | None = Field(Query(
+        default=None,
+        description=FieldDescriptions.fields
+    ))
+    language: Optional[str] = Field(Query(
+        default=None,
+        description=FieldDescriptions.language
+    ))
+
+
+class PlayersTankStatsModel(BaseModel):
+    application_id: Optional[str] = Field(Query(
+        default=None,
+        description=FieldDescriptions.application_id
+    ))
+    account_id: Union[int, list] = Field(Query(
+        description=FieldDescriptions.account_id
+    ))
+    tank_id: int = Field(Query(
+        description=FieldDescriptions.tank_id
+    ))
+    fields: Union[str, list] | None = Field(Query(
+        default=None,
+        description=FieldDescriptions.fields
+    ))
+    language: Optional[str] = Field(Query(
+        default=None,
+        description=FieldDescriptions.language
     ))

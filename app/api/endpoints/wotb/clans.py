@@ -33,7 +33,7 @@ def get_clans_list(
     summary="Данные клана",
     description="Метод возвращает полную информацию о клане."
 )
-def get_clans_list(
+def get_clans_info(
     request: Request,
     request_data: clans.ClansInfoModel = Depends(),
 ):
@@ -52,9 +52,26 @@ def get_clans_list(
             рассылали запросы на вступление, были игроками клана и т.д.
         """
 )
-def get_clans_list(
+def get_clans_accountinfo(
     request: Request,
     request_data: clans.ClansAccountInfoModel = Depends(),
+):
+    service = ApiService(request)
+    response = service.run()
+    return response
+
+
+@router.post(
+    "/glossary/",
+    summary="Глоссарий кланов",
+    description=\
+        """
+        Метод возвращает информацию о клановых сущностях.
+        """
+)
+def get_clans_glossary(
+    request: Request,
+    request_data: clans.ClansGlossaryModel = Depends(),
 ):
     service = ApiService(request)
     response = service.run()

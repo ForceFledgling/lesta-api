@@ -7,7 +7,7 @@ from fastapi import Request, APIRouter
 from fastapi import Depends
 
 from app.core.exceptions import UnicornException
-from app.models.wotb import accounts
+from app.models.wotb import account
 from app.services.api import ApiService
 
 
@@ -21,7 +21,7 @@ router = APIRouter()
 )
 def get_accounts_list(
     request: Request,
-    request_data: accounts.PlayersModel = Depends(),
+    request_data: account.PlayersModel = Depends(),
 ):
     service = ApiService(request)
     response = service.run()
@@ -35,7 +35,35 @@ def get_accounts_list(
 )
 def get_accounts_personal_info(
     request: Request,
-    request_data: accounts.PlayersPersonalDataModel = Depends(),
+    request_data: account.PlayersPersonalDataModel = Depends(),
+):
+    service = ApiService(request)
+    response = service.run()
+    return response
+
+
+@router.post(
+    "/achievements/",
+    summary="Достижения игрока",
+    description="Метод возвращает информацию о достижениях игроков."
+)
+def get_accounts_personal_info(
+    request: Request,
+    request_data: account.PlayersAchievementsModel = Depends(),
+):
+    service = ApiService(request)
+    response = service.run()
+    return response
+
+
+@router.post(
+    "/tankstats/",
+    summary="Статистика по технике",
+    description="Метод возвращает статистику игроков на данной технике."
+)
+def get_accounts_personal_info(
+    request: Request,
+    request_data: account.PlayersTankStatsModel = Depends(),
 ):
     service = ApiService(request)
     response = service.run()
