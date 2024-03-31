@@ -19,10 +19,11 @@ tags_metadata = [
 
 app = FastAPI(
     title='Неофициальное API для Lesta Games',
-    description='https://github.com/ForceFledgling/lesta-api-fastapi',
+    description='https://github.com/ForceFledgling/lesta-api',
     version='0.0.1',
     openapi_tags=tags_metadata,
-    docs_url="/docs",  # TODO
+    docs_url="/docs",
+    redoc_url=None,
 )
 app.include_router(router)
 

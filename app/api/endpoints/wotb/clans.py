@@ -26,3 +26,36 @@ def get_clans_list(
     service = ApiService(request)
     response = service.run()
     return response
+
+
+@router.post(
+    "/info/",
+    summary="Данные клана",
+    description="Метод возвращает полную информацию о клане."
+)
+def get_clans_list(
+    request: Request,
+    request_data: clans.ClansInfoModel = Depends(),
+):
+    service = ApiService(request)
+    response = service.run()
+    return response
+
+
+@router.post(
+    "/accountinfo/",
+    summary="Данные клана",
+    description=\
+        """
+        Метод возвращает клановые данные игрока.
+        Клановые данные игрока существуют только для аккаунтов, которые принимали участие в деятельности клана:
+            рассылали запросы на вступление, были игроками клана и т.д.
+        """
+)
+def get_clans_list(
+    request: Request,
+    request_data: clans.ClansAccountInfoModel = Depends(),
+):
+    service = ApiService(request)
+    response = service.run()
+    return response

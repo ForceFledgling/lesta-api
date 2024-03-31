@@ -2,21 +2,21 @@
 
 Особенности
 
-- Реализация веб-сервера с использованием фреймворка FastAPI и веб-сервера Uvicorn.
+- Реализовано с использованием фреймворка FastAPI и веб-сервера Uvicorn.
 - Запуск приложения как модуля.
 - Автоматическая перезагрузка приложения при изменениях в коде, в режиме DEBUG=True.
-- Автоматический выбор кол-ва процессов, в зависимости от кол-ва ядрес системы, в режиме DEBUG=False
+- Автоматический выбор кол-ва процессов, в зависимости от кол-ва ядре системы, в режиме DEBUG=False.
 - Автоматическая генерация документации Swagger 2.0 по адресу `/docs`.
 
 ## Установка
 
 1\. Клонировать репозиторий:
 
-`git clone` [`https://github.com/ForceFledgling/lesta-api-fastapi`](https://github.com/ForceFledgling/lesta-api-fastapi)
+`git clone` [`https://github.com/ForceFledgling/lesta-api`](https://github.com/ForceFledgling/lesta-api)
 
 2\. Перейти в директорию проекта:
 
-`cd lesta-api-fastapi`
+`cd lesta-api`
 
 3\. Установить необходимые зависимости:
 
