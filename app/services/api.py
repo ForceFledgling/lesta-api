@@ -12,9 +12,9 @@ from app.settings import settings
 class ApiService:
     base_url = "https://papi.tanksblitz.ru"
 
-    def __init__(self, request, custom_prefix=None):
+    def __init__(self, request, custom_prefix=None, custom_params=None):
         self.url = self.base_url + custom_prefix if custom_prefix else self.base_url + request.url.path
-        self.params = dict(request.query_params)
+        self.params = custom_params or dict(request.query_params)
         if "application_id" not in self.params.keys():
             self.params['application_id'] = settings.application_id
 

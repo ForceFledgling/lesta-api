@@ -6,6 +6,8 @@ from app.services.api import ApiService
 
 from app.api.endpoints.wotb.clans import get_clans_info
 
+from app.services.custom import CustomService
+
 
 router = APIRouter()
 
@@ -19,8 +21,6 @@ def test(
     request: Request,
     request_data: custom.CustomClansModel = Depends(),
 ):
-    custom_prefix = "/wotb/account/list/"
-    service = ApiService(request, custom_prefix)
+    service = CustomService(request)
     response = service.run()
-    print('request custom', request.url)
     return response
