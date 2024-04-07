@@ -10,7 +10,7 @@ class ClansModel(BaseModel):
             default=None,
             description=FieldDescriptions.application_id
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
             default=None,
             description=FieldDescriptions.fields
     ))
@@ -46,7 +46,7 @@ class ClansInfoModel(BaseModel):
         Минимальное значение: 1.
             """,
     ))
-    extra: Union[str, list] | None = Field(Query(
+    extra: Union[str, list, None] = Field(Query(
         default=None,
         description=\
             """
@@ -55,7 +55,7 @@ class ClansInfoModel(BaseModel):
             "members"
             """,
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
             default=None,
             description=FieldDescriptions.fields
     ))
@@ -75,7 +75,7 @@ class ClansAccountInfoModel(BaseModel):
             default=None,
             description=FieldDescriptions.account_id
     ))
-    extra: Union[str, list] | None = Field(Query(
+    extra: Union[str, list, None] = Field(Query(
         default=None,
         description=\
             """
@@ -84,7 +84,7 @@ class ClansAccountInfoModel(BaseModel):
             "members"
             """,
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
             default=None,
             description=FieldDescriptions.fields
     ))
@@ -99,7 +99,7 @@ class ClansGlossaryModel(BaseModel):
             default=None,
             description=FieldDescriptions.application_id
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
             default=None,
             description=FieldDescriptions.fields
     ))

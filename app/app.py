@@ -39,11 +39,7 @@ async def unicorn_exception_handler(request: Request, exc: UnicornException):
     return JSONResponse(
         status_code=200,
         content={
-            request.state.address: {
-                "lesta-api": {
-                    "result": "ERROR",
-                    "msg": exc.msg
-                }
-            }
+            "result": "ERROR",
+            "msg": exc.msg
         }
     )

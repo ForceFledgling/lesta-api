@@ -20,7 +20,7 @@ class PlayersModel(BaseModel):
         Mаксимальная длина: 24.
             """,
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
         default=None,
         description=FieldDescriptions.fields
     ))
@@ -58,7 +58,7 @@ class PlayersPersonalDataModel(BaseModel):
         default=None,
         description=FieldDescriptions.access_token
     ))
-    extra: Union[str, list] | None = Field(Query(
+    extra: Union[str, list, None] = Field(Query(
         default=None,
         description=\
             """
@@ -68,7 +68,7 @@ class PlayersPersonalDataModel(BaseModel):
             "statistics.rating",
             """,
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
         default=None,
         description=FieldDescriptions.fields
     ))
@@ -86,7 +86,7 @@ class PlayersAchievementsModel(BaseModel):
     account_id: Union[int, list] = Field(Query(
         description=FieldDescriptions.account_id
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
         default=None,
         description=FieldDescriptions.fields
     ))
@@ -107,7 +107,7 @@ class PlayersTankStatsModel(BaseModel):
     tank_id: int = Field(Query(
         description=FieldDescriptions.tank_id
     ))
-    fields: Union[str, list] | None = Field(Query(
+    fields: Union[str, list, None] = Field(Query(
         default=None,
         description=FieldDescriptions.fields
     ))

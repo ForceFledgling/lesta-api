@@ -8,7 +8,7 @@ from fastapi import Depends
 
 from app.core.exceptions import UnicornException
 from app.models.wotb import account
-from app.services.api import ApiService
+from app.services.api import LestaAPI
 
 
 router = APIRouter()
@@ -23,7 +23,7 @@ def get_accounts_list(
     request: Request,
     request_data: account.PlayersModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 
@@ -37,7 +37,7 @@ def get_accounts_personal_info(
     request: Request,
     request_data: account.PlayersPersonalDataModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 
@@ -51,7 +51,7 @@ def get_accounts_personal_info(
     request: Request,
     request_data: account.PlayersAchievementsModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 
@@ -65,7 +65,7 @@ def get_accounts_personal_info(
     request: Request,
     request_data: account.PlayersTankStatsModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 

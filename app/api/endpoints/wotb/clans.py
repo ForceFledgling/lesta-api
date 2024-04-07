@@ -8,7 +8,7 @@ from fastapi import Depends
 
 from app.core.exceptions import UnicornException
 from app.models.wotb import clans
-from app.services.api import ApiService
+from app.services.api import LestaAPI
 
 
 router = APIRouter()
@@ -23,7 +23,7 @@ def get_clans_list(
     request: Request,
     request_data: clans.ClansModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 
@@ -37,7 +37,7 @@ def get_clans_info(
     request: Request,
     request_data: clans.ClansInfoModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 
@@ -56,7 +56,7 @@ def get_clans_accountinfo(
     request: Request,
     request_data: clans.ClansAccountInfoModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response
 
@@ -73,6 +73,6 @@ def get_clans_glossary(
     request: Request,
     request_data: clans.ClansGlossaryModel = Depends(),
 ):
-    service = ApiService(request)
+    service = LestaAPI(request)
     response = service.run()
     return response

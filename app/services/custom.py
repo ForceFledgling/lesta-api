@@ -8,37 +8,37 @@ import datetime
 from app.core.exceptions import UnicornException
 from app.middlewares import measure_time, measure_time_async
 from app.settings import settings
-from app.services.api import ApiService
+from app.services.api import LestaAPI
 
+from app.api.endpoints import wotb
 
-# FIXME
-# TODO
 
 class CustomService:
     def __init__(self, request):
         self.request = request
         self.params = dict(request.query_params)
 
-    def run(self):
+    def get_activity(self):
         response = {}
-        
+
         clan_id = str(self.params["clan_id"])
-        clan_info = ApiService(
+        clan_info = LestaAPI(
             self.request,
             custom_prefix="/wotb/clans/info/"
         ).run()
+        print('clan_info', clan_info)
         response["tag"] = clan_info["data"][clan_id]["tag"]
         response["name"] = clan_info["data"][clan_id]["name"]
         response["members_count"] = clan_info["data"][clan_id]["members_count"]
         
         members_ids = clan_info["data"][self.params["clan_id"]]["members_ids"]
         members_ids_row = ', '.join(map(str, members_ids))
-        members_info = ApiService(
+        members_info = LestaAPI(
             self.request,
             custom_prefix="/wotb/clans/accountinfo/",
             custom_params={"account_id": members_ids_row}
         ).run()
-        personal_members_info = ApiService(
+        personal_members_info = LestaAPI(
             self.request,
             custom_prefix="/wotb/account/info/",
             custom_params={"account_id": members_ids_row}
@@ -57,3 +57,7 @@ class CustomService:
         
         response["members"] = members
         return response
+
+    def get_clan_members(self):
+        clan_members = LestaAPI(request=self.request, func=wotb.clans.get_clans_info, custom_params={"clan_id": "604631", "extra": "members", "fields": "members"}).run()
+        return clan_members

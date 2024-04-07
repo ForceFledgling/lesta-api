@@ -8,7 +8,7 @@ from fastapi import Depends
 
 from app.core.exceptions import UnicornException
 from app.models.wotb import account
-from app.services.api import ApiService
+from app.services.api import LestaAPI
 
 
 router = APIRouter()
